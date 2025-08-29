@@ -13,13 +13,13 @@ A modern web application for code analysis, optimization, and developer producti
 - **Contributor Leaderboard**: Track top contributors and community engagement.
 - **FAQ & Feedback**: Comprehensive FAQ and feedback system for users.
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
-## 🛠️ Technology Stack
+# 🛠Technology Stack
 - **Frontend**: React (Vite)
 - **Styling**: Custom CSS (Glassmorphism)
 - **Linting**: ESLint
 - **Deployment**: Netlify
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
-## Folder Structure
+# Folder Structure
 
 
 
@@ -87,7 +87,7 @@ plainText
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
 
-## Getting Started
+# Getting Started
 
 Clone the repository:
 ```bash
@@ -109,7 +109,7 @@ Build for production:
 npm run build
 ```
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
-## 📜 License
+# License
 This project is licensed under the **MIT License**.
 
 ---
