@@ -2,7 +2,7 @@
 
 A modern web application for code analysis, optimization, and developer productivity. Built with React and Vite, OMEX Frontend offers a suite of tools to beautify code, scan for security issues, generate test cases, and more—all in a clean, user-friendly interface.
 
-## ✨ Features
+##  Features
 - **Code Beautifier**: Instantly format and enhance code readability.
 - **Security Scanner**: Detect vulnerabilities and improve code safety.
 - **Test Case Generator**: Automatically create robust test cases for your code.
@@ -19,10 +19,9 @@ A modern web application for code analysis, optimization, and developer producti
 - **Linting**: ESLint
 - **Deployment**: Netlify
 
-## 📂 Folder Structure
+## Folder Structure
 
-<details>
-<summary>Click to expand</summary>
+
 
 ```
 plainText
@@ -88,7 +87,7 @@ plainText
 
 </details>
 
-## 🚀 Getting Started
+## Getting Started
 
 Clone the repository:
 ```bash
@@ -110,14 +109,7 @@ Build for production:
 npm run build
 ```
 
-## 🤝 Contribution Guidelines
-- Fork the repository and create your branch from `main`.
-- Follow the existing code style and structure.
-- Submit a pull request with a clear description of your changes.
-
 ## 📜 License
 This project is licensed under the **MIT License**.
 
 ---
-
-💡 **Inspiration**: Built to empower developers with smarter tools for productivity and cleaner code.
