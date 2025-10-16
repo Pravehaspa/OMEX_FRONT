@@ -99,11 +99,12 @@ plainText
 
 
 
-# WorkFlow
+# Architechture
 
 
-<img width="423" height="632" alt="image" src="https://github.com/user-attachments/assets/b81d97e2-c33a-4b09-b8ad-b7a1f0a0afc5" />
 
+
+<img width="696" height="779" alt="┌──────────────────────────┐ - visual selection" src="https://github.com/user-attachments/assets/2486c757-ff3f-41d5-b892-d2c40faafab5" />
 
 
 # Getting Started
