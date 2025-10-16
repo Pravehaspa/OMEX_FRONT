@@ -23,6 +23,11 @@ A modern web application for code analysis, optimization, and developer producti
 - **Linting**: ESLint
 
 - **Deployment**: Vercel
+
+
+<img width="924" height="870" alt="LayerTechnologyPurpose - visual selection" src="https://github.com/user-attachments/assets/5ae17a01-ae1d-4b8b-8d38-c1d87661f745" />
+
+
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
 
 # Folder Structure
@@ -95,8 +100,6 @@ plainText
 
 
 # WorkFlow
-
-
 
 
 <img width="423" height="632" alt="image" src="https://github.com/user-attachments/assets/b81d97e2-c33a-4b09-b8ad-b7a1f0a0afc5" />
