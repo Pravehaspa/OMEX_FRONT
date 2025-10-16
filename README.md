@@ -103,11 +103,11 @@ plainText
 
 
 
+<img width="630" height="368" alt="image" src="https://github.com/user-attachments/assets/adf4a08c-27d4-4609-b777-26228b3510ff" />
 
-<img width="696" height="779" alt="┌──────────────────────────┐ - visual selection" src="https://github.com/user-attachments/assets/2486c757-ff3f-41d5-b892-d2c40faafab5" />
 
 
-#Code Optimization
+# Code Optimization
 
 <img width="915" height="826" alt="image" src="https://github.com/user-attachments/assets/296eeb09-1ec3-4253-8195-6e688d45eff4" />
 
