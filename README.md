@@ -91,9 +91,16 @@ plainText
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
 
 
+
+
+
 # WorkFlow
 
-<img width="842" height="301" alt="image" src="https://github.com/user-attachments/assets/92580d5f-92d1-43f6-943a-847a8315d059" />
+
+
+
+<img width="423" height="632" alt="image" src="https://github.com/user-attachments/assets/b81d97e2-c33a-4b09-b8ad-b7a1f0a0afc5" />
+
 
 
 # Getting Started
