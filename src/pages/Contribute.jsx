@@ -83,7 +83,7 @@ const Contribute = () => {
                 💻 <strong>Clone</strong> your fork locally:
                 <br />
                 <code className="break-all dark:bg-gray-700 p-1 rounded">
-                  git clone https://github.com/Roshansuthar1105/Omex.git
+                  git clone https://github.com/Pravehaspa/OMEX_FRONT
                 </code>
               </li>
               <li>
