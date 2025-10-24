@@ -21,6 +21,10 @@ function ErrorDebugger() {
   const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
 
   const debugCode = async () => {
@@ -31,7 +35,7 @@ function ErrorDebugger() {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/debug-code`, {
+      const response = await axios.post(`${BACKEND_URL}/ai/debug-code`, {
         code,
         language
       });
