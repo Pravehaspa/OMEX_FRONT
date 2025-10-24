@@ -1,27 +1,20 @@
 @import "tailwindcss";
 
-/* Global styles */
+/* Make sure we reuse theme variables from glassmorphism.css */
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.24s ease, color 0.24s ease;
+  /* default to light mode variables; the js/theme toggle should add dark-mode when needed */
+  background-color: var(--page-bg, #ffffff);
+  color: var(--text, #0b0b0b);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #1a1a2e;
-  color: #f0f0f0;
-}
-
-/* Light mode styles */
-body.light-mode {
-  background-color: #f5f5f5;
-  color: #333333;
-}
+/* Provide explicit light/dark classes that map to the theme variables */
+/* The actual light/dark variable values are defined in src/styles/glassmorphism.css
+  Keep these classes on the body element to switch theme; no extra properties here. */
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
