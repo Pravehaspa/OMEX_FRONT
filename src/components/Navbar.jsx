@@ -91,8 +91,8 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
 
   const isActive = (path) => {
     return location.pathname === path
-      ? "text-blue-400 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-400 after:to-purple-400 after:rounded-full"
-      : "hover:text-blue-400 relative overflow-hidden group";
+      ? "text-gray-800 dark:text-white relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-800 dark:after:bg-white after:rounded-full"
+      : "hover:text-gray-600 dark:hover:text-gray-300 relative overflow-hidden group";
   };
 
   const isToolsActive = () => {
@@ -155,11 +155,11 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
   return (
     <>
       <nav
-        className={`${
+        className={`$
           isDark 
             ? "bg-gray-900 text-white border-gray-800"
             : "bg-white text-gray-800 border-gray-200"
-        } ${
+        } $
           scrolled 
             ? "backdrop-blur-xl shadow-2xl border-b" 
             : "backdrop-blur-md shadow-lg"
@@ -170,19 +170,18 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
             {/* Logo */}
             <div className="flex items-center space-x-3 group">
               <div className="relative">
-                <FaCode className="text-blue-400 text-2xl group-hover:text-purple-400 transition-all duration-300 transform group-hover:scale-110" />
-                <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <img src="/gup.jpg" alt="Logo" className="w-8 h-8 rounded-full group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gray-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
                 <Link
                   to="/"
-                  className="hover:from-purple-400 hover:via-pink-400 hover:to-blue-400 transition-all duration-500"
+                  className="hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-500"
                   onClick={closeMenu}
                 >
                   OMEX
                 </Link>
               </h1>
-              <FaStar className="text-yellow-400 text-sm animate-pulse opacity-70" />
             </div>
 
             {/* Desktop Navigation */}
@@ -192,14 +191,14 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                 className={`flex items-center space-x-2 py-2 px-3 rounded-lg transition-all duration-300 ${isActive("/")}`}
               >
                 <span className="relative z-10">Home</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-gray-400/10 to-gray-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
 
               <Link
                 to="/optimiser"
                 className={`flex items-center space-x-2 py-2 px-3 rounded-lg transition-all duration-300 group ${isActive("/optimiser")}`}
               >
-                <FaRocket className="text-lg group-hover:text-yellow-400 transition-colors duration-300 transform group-hover:scale-110" />
+                <FaRocket className="text-lg group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300 transform group-hover:scale-110" />
                 <span className="relative z-10">Optimize</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
@@ -208,7 +207,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                 to="/codegenerator"
                 className={`flex items-center space-x-2 py-2 px-3 rounded-lg transition-all duration-300 group ${isActive("/codegenerator")}`}
               >
-                <FaMagic className="text-lg group-hover:text-green-400 transition-colors duration-300 transform group-hover:scale-110" />
+                <FaMagic className="text-lg group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300 transform group-hover:scale-110" />
                 <span className="relative z-10">Generate</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-green-400/10 to-emerald-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
@@ -217,7 +216,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                 to="/codecomplexity"
                 className={`flex items-center space-x-2 py-2 px-3 rounded-lg transition-all duration-300 group ${isActive("/codecomplexity")}`}
               >
-                <FaChartLine className="text-lg group-hover:text-purple-400 transition-colors duration-300 transform group-hover:scale-110" />
+                <FaChartLine className="text-lg group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300 transform group-hover:scale-110" />
                 <span className="relative z-10">Complexity</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
@@ -230,16 +229,16 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                   onClick={toggleToolsDropdown}
                   className={`flex items-center space-x-2 py-2 px-3 rounded-lg transition-all duration-300 group ${
                     isToolsActive()
-                      ? "text-blue-400 bg-blue-400/10"
-                      : "hover:text-blue-400 hover:bg-blue-400/10"
+                      ? "text-gray-800 dark:text-white bg-gray-800/10 dark:bg-white/10"
+                      : "hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-600/10 dark:hover:bg-gray-300/10"
                   }`}
                 >
-                  <FaTools className="text-lg group-hover:text-cyan-400 transition-colors duration-300 transform group-hover:scale-110" />
+                  <FaTools className="text-lg group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300 transform group-hover:scale-110" />
                   <span className="relative z-10">Tools</span>
                   <div className={`transform transition-all duration-300 ${isToolsDropdownOpen ? "rotate-180" : ""}`}>
                     <FaChevronDown className="text-xs" />
                   </div>
-                  <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 bg-gray-600/10 dark:bg-gray-300/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </button>
 
                 {isToolsDropdownOpen && (
@@ -252,13 +251,13 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                   >
                     <div className="py-2" role="menu">
                       {[
-                        { to: "/code-tools", icon: FaTools, label: "All Tools", color: "blue" },
-                        { to: "/test-case-generator", icon: FaVial, label: "Test Case Generator", color: "green" },
-                        { to: "/code-beautifier", icon: FaPaintBrush, label: "Code Beautifier", color: "pink" },
-                        { to: "/error-debugger", icon: FaBug, label: "Error Debugger", color: "red" },
-                        { to: "/performance-analyzer", icon: FaTachometerAlt, label: "Performance Analyzer", color: "yellow" },
-                        { to: "/content-summarizer", icon: FaAlignLeft, label: "Content Summarizer", color: "purple" },
-                        { to: "/security-scanner", icon: FaShieldAlt, label: "Security Scanner", color: "red" }
+                        { to: "/code-tools", icon: FaTools, label: "All Tools", color: "gray" },
+                        { to: "/test-case-generator", icon: FaVial, label: "Test Case Generator", color: "gray" },
+                        { to: "/code-beautifier", icon: FaPaintBrush, label: "Code Beautifier", color: "gray" },
+                        { to: "/error-debugger", icon: FaBug, label: "Error Debugger", color: "gray" },
+                        { to: "/performance-analyzer", icon: FaTachometerAlt, label: "Performance Analyzer", color: "gray" },
+                        { to: "/content-summarizer", icon: FaAlignLeft, label: "Content Summarizer", color: "gray" },
+                        { to: "/security-scanner", icon: FaShieldAlt, label: "Security Scanner", color: "gray" }
                       ].map((item) => (
                         <Link
                           key={item.to}
@@ -284,7 +283,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className={`relative overflow-hidden p-3 rounded-xl transition-all duration-500 group ${
+                className={`relative overflow-hidden p-3 rounded-xl transition-all duration-500 group $
                   isDark
                     ? "bg-gray-800 hover:bg-gray-700"
                     : "bg-gray-100 hover:bg-gray-200"
@@ -305,7 +304,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
             <div className="lg:hidden flex items-center space-x-3">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-xl transition-all duration-300 group ${
+                className={`p-2 rounded-xl transition-all duration-300 group $
                   isDark
                     ? "bg-gray-800 hover:bg-gray-700"
                     : "bg-gray-100 hover:bg-gray-200"
@@ -321,7 +320,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
 
               <button
                 onClick={toggleMenu}
-                className={`hamburger-button p-3 rounded-xl ${
+                className={`hamburger-button p-3 rounded-xl $
                   isDark
                     ? "bg-gray-800/90 text-white hover:bg-gray-700/90"
                     : "bg-gray-100/90 text-gray-800 hover:bg-gray-200/90"
@@ -377,8 +376,8 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
           isDark ? "border-gray-800/50" : "border-gray-200/50"
         }`}>
           <div className="flex items-center space-x-3">
-            <FaCode className="text-blue-400 text-xl" />
-            <span className="font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <img src="/gup.jpg" alt="Logo" className="w-6 h-6 rounded-full" />
+            <span className="font-bold text-2xl text-gray-800 dark:text-white">
               OMEX
             </span>
           </div>
@@ -396,13 +395,13 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
         </div>
 
         {/* Mobile menu items */}
-        <div className="py-6 px-4 space-y-2">
+  <div className="py-6 px-4 space-y-2">
           {/* Main Navigation Items (removed Compare and Contributors) */}
           {[
-            { to: "/", icon: FaCode, label: "Home", color: "blue" },
-            { to: "/optimiser", icon: FaRocket, label: "Optimize", color: "yellow" },
-            { to: "/codegenerator", icon: FaMagic, label: "Generate", color: "green" },
-            { to: "/codecomplexity", icon: FaChartLine, label: "Complexity", color: "purple" }
+            { to: "/", icon: FaCode, label: "Home", color: "gray" },
+            { to: "/optimiser", icon: FaRocket, label: "Optimize", color: "gray" },
+            { to: "/codegenerator", icon: FaMagic, label: "Generate", color: "gray" },
+            { to: "/codecomplexity", icon: FaChartLine, label: "Complexity", color: "gray" }
           ].map((item) => (
             <Link
               key={item.to}
@@ -432,8 +431,8 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
               className={`flex items-center justify-between w-full p-4 rounded-xl transition-all duration-300 group ${
                 isToolsActive()
                   ? isDark
-                    ? "bg-blue-900/30 text-blue-400"
-                    : "bg-blue-50 text-blue-600"
+                    ? "bg-gray-800/30 text-gray-300"
+                    : "bg-gray-200 text-gray-800"
                   : isDark
                     ? "hover:bg-gray-800/70"
                     : "hover:bg-gray-100/70"
@@ -442,7 +441,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
               }`}
             >
               <div className="flex items-center space-x-3">
-                <FaTools className="text-cyan-400 group-hover:scale-110 transition-transform duration-200" />
+                <FaTools className="text-gray-500 dark:text-gray-400 group-hover:scale-110 transition-transform duration-200" />
                 <span className="font-medium">Tools</span>
               </div>
               <FaChevronDown className={`transform transition-transform duration-300 ${
@@ -465,10 +464,10 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
                     key={item.to}
                     to={item.to}
                     className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 group ${
-                      isDark
-                        ? "hover:bg-gray-800/50 text-gray-300"
-                        : "hover:bg-gray-100/50 text-gray-700"
-                    }`}
+                            isDark
+                              ? "hover:bg-gray-800/50 text-gray-300"
+                              : "hover:bg-gray-100/50 text-gray-700"
+                          }`}
                     onClick={closeMenu}
                   >
                     <item.icon className={`text-${item.color}-400 text-sm group-hover:scale-110 transition-transform duration-200`} />
@@ -483,16 +482,16 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
         </div>
         {/* End Mobile menu items */}
         {/* Theme toggle for mobile sidebar */}
-        <div className={`mt-8 pt-6 border-t ${isDark ? "border-gray-800/50" : "border-gray-200/50"}`}>
+  <div className={`mt-8 pt-6 border-t ${isDark ? "border-gray-800/50" : "border-gray-200/50"}`}>
           <div className="flex items-center justify-between px-4">
             <span className="font-medium text-lg">Theme</span>
             <button
               onClick={toggleTheme}
               className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 group ${
-                isDark
-                  ? "bg-gray-800/70 hover:bg-gray-700/70 text-yellow-400"
-                  : "bg-gray-100/70 hover:bg-gray-200/70 text-blue-600"
-              } shadow-lg hover:shadow-xl transform hover:scale-105`}
+                  isDark
+                    ? "bg-gray-800/70 hover:bg-gray-700/70 text-yellow-400"
+                    : "bg-gray-100/70 hover:bg-gray-200/70 text-gray-600"
+                } shadow-lg hover:shadow-xl transform hover:scale-105`}
             >
               {isDark ? (
                 <>
