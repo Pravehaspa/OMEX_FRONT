@@ -9,29 +9,50 @@ const Team = () => {
   const [loading, setLoading] = useState(true);
  
 
-  // Team member data
+  // Team member data (updated to reflect the 4-person team)
   const teamMembers = [
     {
       id: 1,
-      name: 'Roshan Suthar',
-      role: 'Founder & Lead Developer',
-      bio: 'As the sole developer of OMEX, I designed and built this platform from the ground up with a vision to make code optimization accessible to all developers. I\'m passionate about creating tools that help developers write better code.',
-      image: 'https://avatars.githubusercontent.com/u/117620582?v=4', // Using a placeholder image
+      name: 'Prathyun Gupta',
+      role: 'Lead / Major Contributor',
+      bio: 'Led the development and implementation of the core OMEX features and architecture, driving the project from idea to working prototype.',
+      image: 'https://ui-avatars.com/api/?name=Prathyun+Gupta&background=0D8ABC&color=fff',
       social: {
-        linkedin: 'https://linkedin.com',
-        github: 'https://github.com/Roshansuthar1105',
-        x: 'https://x.com/roshansuthar_rs'
+        linkedin: 'https://www.linkedin.com/in/c-sai-prathyun-gupta-817758314/',
+        github: 'https://github.com/Gupta-02'
       }
     },
     {
       id: 2,
-      name: 'Claude',
-      role: 'AI Assistant',
-      bio: 'Claude is an AI assistant developed by Anthropic that helped with various aspects of the OMEX platform, including UI design suggestions, code optimization, and content creation.',
-      image: 'https://logowik.com/content/uploads/images/claude-ai9117.logowik.com.webp',
+      name: 'Venkatesh',
+      role: 'Frontend Engineer',
+      bio: 'Focused on UI implementation, responsive layouts, and accessibility improvements to ensure a smooth developer experience.',
+      image: 'https://ui-avatars.com/api/?name=Venkatesh&background=4C51BF&color=fff',
       social: {
-        linkedin: 'https://anthropic.com',
-        github: 'https://github.com'
+        linkedin: 'https://www.linkedin.com/in/venkatesh-devarakonda-96b389329/',
+        github: 'https://github.com/VenkateshDevarakonda0706'
+      }
+    },
+    {
+      id: 3,
+      name: 'Hansika Vardini',
+      role: 'UX Designer',
+      bio: 'Designed the user flows, visual language, and components to make OMEX intuitive and visually appealing.',
+      image: 'https://ui-avatars.com/api/?name=Hansika&background=DD6B20&color=fff',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/hansika-vardini-mula-918ba3351/',
+        github: 'https://github.com/hansikavardini'
+      }
+    },
+    {
+      id: 4,
+      name: 'Spandana Reddy',
+      role: 'QA & Documentation',
+      bio: 'Handled testing, quality assurance processes, and documentation to keep the project stable and easy to contribute to.',
+      image: 'https://ui-avatars.com/api/?name=Spandana&background=15803D&color=fff',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/spandana-reddy-banka-66a711336/',
+        github: 'https://github.com/spandanareddyb'
       }
     }
   ];
@@ -41,7 +62,7 @@ const Team = () => {
     <div className={`rounded-2xl backdrop-blur-lg ${
       isDark
         ? 'bg-gray-900/40 border border-gray-700/50'
-        : 'bg-white/30 border border-white/50'
+        : 'bg-white border border-gray-300 shadow-md'
     } relative transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 pointer-events-none"></div>
       <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl"></div>
@@ -89,9 +110,9 @@ const Team = () => {
             <div className={`mb-6 p-5 rounded-xl ${
               isDark
                 ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700/50'
-                : 'bg-white/50 backdrop-blur-sm border border-white/50'
+                : 'bg-gray-100 border border-gray-300 shadow-sm'
             }`}>
-              <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 {member.bio}
               </p>
             </div>
@@ -103,10 +124,12 @@ const Team = () => {
                   href={member.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`${member.name} on LinkedIn`}
+                  aria-label={`${member.name} on LinkedIn`}
                   className={`p-3 rounded-full ${
                     isDark
                       ? 'bg-gray-800/70 hover:bg-blue-900/50'
-                      : 'bg-white/70 hover:bg-blue-100/70'
+                      : 'bg-gray-200 hover:bg-blue-100'
                   } backdrop-blur-sm transition duration-200 hover:scale-110 shadow-md`}
                 >
                   <FaLinkedin size={20} className="text-blue-500" />
@@ -117,27 +140,15 @@ const Team = () => {
                   href={member.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`${member.name} on GitHub`}
+                  aria-label={`${member.name} on GitHub`}
                   className={`p-3 rounded-full ${
                     isDark
                       ? 'bg-gray-800/70 hover:bg-gray-900/50'
-                      : 'bg-white/70 hover:bg-gray-100/70'
+                      : 'bg-gray-200 hover:bg-gray-300'
                   } backdrop-blur-sm transition duration-200 hover:scale-110 shadow-md`}
                 >
                   <FaGithub size={20} className={isDark ? 'text-white' : 'text-gray-800'} />
-                </a>
-              )}
-              {member.social.x && (
-                <a
-                  href={member.social.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 rounded-full ${
-                    isDark
-                      ? 'bg-gray-800/70 hover:bg-blue-900/50'
-                      : 'bg-white/70 hover:bg-blue-100/70'
-                  } backdrop-blur-sm transition duration-200 hover:scale-110 shadow-md`}
-                >
-                  <FaTwitter size={20} className="text-blue-400" />
                 </a>
               )}
             </div>
@@ -188,21 +199,21 @@ const Team = () => {
               <FaCode className="text-blue-500 text-4xl" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">About the Developer</h1>
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Our Team</h1>
           <div className={`max-w-2xl mx-auto p-5 rounded-xl ${
             isDark
               ? 'bg-gray-900/40 border border-gray-700/50'
               : 'bg-white/30 border border-white/50'
           } backdrop-blur-sm`}>
             <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-              OMEX was created by a single developer with a passion for building tools that make coding more efficient and enjoyable, with some help from AI.
+              OMEX is developed and maintained by a small team of four contributors, led by Prathyun Gupta.
             </p>
           </div>
         </div>
 
         {/* Team Members Grid */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Developer & AI Assistant</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Meet the Team</h2>
           <div className="flex flex-col space-y-10 max-w-5xl mx-auto">
             {teamMembers.map(member => (
               <MemberCard key={member.id} member={member} />
