@@ -117,7 +117,7 @@ function Nav({ isMenuOpen, setIsMenuOpen }) {
                 "/optimiser"
               )}`}
             >
-              <FaLightbulb className="text-yellow-400" />
+              <FaLightbulb className={`${isDark ? 'text-yellow-400' : 'text-gray-800'}`} />
               <span>Optimize</span>
             </Link>
             <Link
@@ -364,9 +364,9 @@ function Nav({ isMenuOpen, setIsMenuOpen }) {
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <FaSun className="text-yellow-400" />
+                <FaSun className={`${isDark ? 'text-yellow-400' : 'text-gray-800'}`} />
               ) : (
-                <FaMoon className="text-blue-600" />
+                <FaMoon className={`${isDark ? 'text-white' : 'text-gray-800'}`} />
               )}
             </button>
           </div>
@@ -382,9 +382,9 @@ function Nav({ isMenuOpen, setIsMenuOpen }) {
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <FaSun className="text-yellow-400" />
+                <FaSun className={`${isDark ? 'text-yellow-400' : 'text-gray-800'}`} />
               ) : (
-                <FaMoon className="text-blue-600" />
+                <FaMoon className={`${isDark ? 'text-white' : 'text-gray-800'}`} />
               )}
             </button>
 
@@ -484,7 +484,7 @@ function Nav({ isMenuOpen, setIsMenuOpen }) {
                 }`}
               onClick={toggleMenu}
             >
-              <FaLightbulb className="text-yellow-400" />
+              <FaLightbulb className={`${isDark ? 'text-yellow-400' : 'text-gray-800'}`} />
               <span>Optimize</span>
             </Link>
             <Link
