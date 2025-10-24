@@ -21,6 +21,10 @@ const CodeCompare = () => {
 
   const { isDark } = useTheme();
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = [
     { value: 'javascript', label: 'JavaScript' },
     { value: 'python', label: 'Python' },
@@ -40,7 +44,7 @@ const CodeCompare = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/compare-code`, {
+      const response = await axios.post(`${BACKEND_URL}/ai/compare-code`, {
         code1: leftCode,
         code2: rightCode,
         language
