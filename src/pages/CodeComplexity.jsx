@@ -1,41 +1,16 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import CodeEditor from '../components/CodeEditor'
-import {useTheme} from '../context/ThemeContext';
-import Loader from '../components/Loader';
+import { useTheme } from '../context/ThemeContext';
 
 function CodeComplexity() {
-    const {isDark} = useTheme();
-    const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-      window.scrollTo(0, 0);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-    // const URL = "http://localhost:5000/ai/get-complexity"
-    const URL=`${import.meta.env.VITE_BACKEND_URL}/ai/get-complexity`
-    const prompt=
-    `int fact(int n){
-        if(n<=1){
-            return 1;
-        }else{
-            return n*fact(n-1);
-        } 
-}`;
-if (loading) {
-    return (
-      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
-        <Loader fullscreen size="xl" color="purple" text="Loading Complexity Tool..." />
+  const { isDark } = useTheme();
+
+  return (
+    <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'}`}>
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Page Coming Soon</h1>
+        <p className="text-lg">This feature is under development. Stay tuned!</p>
       </div>
-    );
-  }
-    return (
-        <div className='' >
-            <CodeEditor URL={URL} prompt={prompt} />
-        </div>
-    )
+    </div>
+  );
 }
 
-export default CodeComplexity
+export default CodeComplexity;
