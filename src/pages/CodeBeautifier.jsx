@@ -18,6 +18,10 @@ return total+(total*tax);}`);
   const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby", "HTML", "CSS"];
 
   const beautifyCode = async () => {
@@ -28,7 +32,7 @@ return total+(total*tax);}`);
 
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/beautify-code`, {
+      const response = await axios.post(`${BACKEND_URL}/ai/beautify-code`, {
         code,
         language
       });
