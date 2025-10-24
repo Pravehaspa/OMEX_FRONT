@@ -30,46 +30,19 @@ const Loader = ({
     xl: { main: "w-24 h-24", orbit: "w-30 h-30", particles: "w-2 h-2" },
   };
 
-  // Dynamic color system with gradients
+  // Monochrome/grayscale color system for loader (matches B/W theme)
   const colorSystem = {
-    blue: {
-      primary: isDark ? "#3b82f6" : "#2563eb",
-      secondary: isDark ? "#1d4ed8" : "#1e40af",
-      accent: isDark ? "#60a5fa" : "#3b82f6",
-      glow: isDark ? "rgba(59, 130, 246, 0.4)" : "rgba(37, 99, 235, 0.3)",
-      particles: isDark ? "#93c5fd" : "#60a5fa",
-    },
-    green: {
-      primary: isDark ? "#10b981" : "#059669",
-      secondary: isDark ? "#047857" : "#065f46",
-      accent: isDark ? "#34d399" : "#10b981",
-      glow: isDark ? "rgba(16, 185, 129, 0.4)" : "rgba(5, 150, 105, 0.3)",
-      particles: isDark ? "#6ee7b7" : "#34d399",
-    },
-    purple: {
-      primary: isDark ? "#8b5cf6" : "#7c3aed",
-      secondary: isDark ? "#7c3aed" : "#6d28d9",
-      accent: isDark ? "#a78bfa" : "#8b5cf6",
-      glow: isDark ? "rgba(139, 92, 246, 0.4)" : "rgba(124, 58, 237, 0.3)",
-      particles: isDark ? "#c4b5fd" : "#a78bfa",
-    },
-    red: {
-      primary: isDark ? "#ef4444" : "#dc2626",
-      secondary: isDark ? "#dc2626" : "#b91c1c",
-      accent: isDark ? "#f87171" : "#ef4444",
-      glow: isDark ? "rgba(239, 68, 68, 0.4)" : "rgba(220, 38, 38, 0.3)",
-      particles: isDark ? "#fca5a5" : "#f87171",
-    },
-    yellow: {
-      primary: isDark ? "#f59e0b" : "#d97706",
-      secondary: isDark ? "#d97706" : "#b45309",
-      accent: isDark ? "#fbbf24" : "#f59e0b",
-      glow: isDark ? "rgba(245, 158, 11, 0.4)" : "rgba(217, 119, 6, 0.3)",
-      particles: isDark ? "#fde68a" : "#fbbf24",
-    },
+    mono: {
+      primary: isDark ? '#ffffff' : '#0b0b0b',
+      secondary: isDark ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.85)',
+      accent: isDark ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0.9)',
+      glow: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.08)',
+      particles: isDark ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0.9)'
+    }
   };
 
-  const currentColors = colorSystem[color] || colorSystem.blue;
+  // Use monochrome regardless of requested color name
+  const currentColors = colorSystem['mono'];
   const currentSize = sizeClasses[size] || sizeClasses.medium;
 
   const containerClasses = centered
@@ -97,8 +70,8 @@ const Loader = ({
       `}
       style={{
         background: fullscreen ? (isDark 
-          ? `radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%)`
-          : `radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%)`
+          ? `radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)`
+          : `radial-gradient(circle at center, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.01) 50%, transparent 100%)`
         ) : 'transparent'
       }}
     >
@@ -158,7 +131,7 @@ const Loader = ({
               <linearGradient id={`gradient-${color}`} x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor={currentColors.primary} />
                 <stop offset="50%" stopColor={currentColors.accent} />
-                <stop offset="100%" stopColor={currentColors.secondary} />
+                <stop offset="100%" stopColor={currentColors.secondary || currentColors.primary} />
               </linearGradient>
               <filter id={`glow-${color}`}>
                 <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
