@@ -19,6 +19,10 @@ function TestCaseGenerator() {
   const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
 
   const generateTestCases = async () => {
@@ -29,7 +33,7 @@ function TestCaseGenerator() {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/generate-test-cases`, {
+      const response = await axios.post(`${BACKEND_URL}/ai/generate-test-cases`, {
         code,
         language
       });
@@ -49,6 +53,7 @@ function TestCaseGenerator() {
     toast.success('Test cases copied to clipboard!');
   };
 
+  // Fix text color for light theme
   const handleClearAll = () => {
     setCode('');
     setTestCases('');
