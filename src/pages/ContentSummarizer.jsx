@@ -23,6 +23,10 @@ function ContentSummarizer() {
   const [error, setError] = useState('');
   const [summaryLength, setSummaryLength] = useState('medium'); // short, medium, long
   const [summaryType, setSummaryType] = useState('general'); // general, academic, business
+  
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
 
   // Handle file selection
   const handleFileSelect = (selectedFile) => {
@@ -94,7 +98,7 @@ function ContentSummarizer() {
         formData.append('summaryType', summaryType);
 
         response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/ai/summarize-content`,
+          `${BACKEND_URL}/ai/summarize-content`,
           formData,
           {
             headers: {
@@ -105,7 +109,7 @@ function ContentSummarizer() {
       } else if (inputType === 'text') {
         // Send text input
         response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/ai/summarize-text`,
+          `${BACKEND_URL}/ai/summarize-text`,
           {
             text,
             inputType: 'text',
@@ -116,7 +120,7 @@ function ContentSummarizer() {
       } else if (inputType === 'youtube') {
         // Send YouTube URL
         response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/ai/summarize-youtube`,
+          `${BACKEND_URL}/ai/summarize-youtube`,
           {
             youtubeUrl,
             inputType: 'youtube',
