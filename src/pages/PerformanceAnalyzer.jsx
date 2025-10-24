@@ -25,6 +25,11 @@ function PerformanceAnalyzer() {
   const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  // normalize backend URL to avoid double slashes or trailing slash issues
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
 
   const analyzePerformance = async () => {
@@ -34,20 +39,38 @@ function PerformanceAnalyzer() {
     }
 
     setLoading(true);
-    try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/analyze-performance`, {
-        code,
-        language
-      });
+    let attempts = 0;
+    const maxRetries = 3;
 
-      setAnalysisResult(response.data);
-      toast.success('Performance analysis completed!');
-    } catch (error) {
-      console.error('Error analyzing performance:', error);
-      toast.error('Failed to analyze performance. Please try again.');
-    } finally {
-      setLoading(false);
+    while (attempts < maxRetries) {
+      try {
+        const response = await axios.post(`${BACKEND_URL}/ai/analyze-performance`, {
+          code,
+          language,
+          apiKey: import.meta.env.GEMINI_API_KEY
+        });
+
+        setAnalysisResult(response.data);
+        toast.success('Performance analysis completed!');
+        setLoading(false);
+        return;
+      } catch (error) {
+        attempts++;
+        console.error(`Attempt ${attempts} failed:`, {
+          message: error.message,
+          response: error.response?.data,
+          status: error.response?.status,
+          headers: error.response?.headers,
+          config: error.config
+        });
+
+        if (attempts >= maxRetries) {
+          toast.error('Failed to analyze performance after multiple attempts. Please try again later.');
+        }
+      }
     }
+
+    setLoading(false);
   };
 
   const handleCopyAnalysisResult = () => {
