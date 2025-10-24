@@ -18,7 +18,6 @@ import {
   FaShieldAlt,
   FaTachometerAlt,
   FaTools,
-  FaTwitter,
   FaUserFriends,
   FaUsers,
   FaVial
@@ -30,7 +29,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { isDark } = useTheme();
 
-  const linkBase = `${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`;
+  const linkBase = `${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`;
   const iconClass = 'mr-2 text-sm';
 
   return (
@@ -40,30 +39,27 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <FaCode className="text-blue-400 text-2xl mr-2" />
+              <img src="/gup.jpg" alt="Logo" className="w-6 h-6 rounded-full mr-2" />
               <h2 className="text-2xl font-bold">OMEX</h2>
             </div>
             <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-6 max-w-md`}>
               Elevate your code with AI-powered optimization, analysis, and generation tools. OMEX helps developers write better, cleaner, and more efficient code.
             </p>
             <div className="flex space-x-4 mb-6">
-              <a href="https://github.com/Roshansuthar1105/Omex" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
+              <a href="https://github.com/orgs/Pravehaspa/repositories" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
                 <FaGithub size={20} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
-                <FaTwitter size={20} />
-              </a>
-              <a href="https://linkedin.com/in/roshansuthar" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
+              <a href="https://www.linkedin.com/in/c-sai-prathyun-gupta-817758314/" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
                 <FaLinkedin size={20} />
               </a>
-              <a href="https://discord.com/users/1317732270047498343" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
+              <a href="https://discord.gg/hFq62CKt" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition duration-200`}>
                 <FaDiscord size={20} />
               </a>
             </div>
             <div className={`flex items-center ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
               <FaEnvelope className="mr-2" />
-              <a href="mailto:contact@omex.com" className="text-blue-400 hover:text-blue-300 transition duration-200">
-                contact@omex.com
+              <a href="mailto:saiprathyun85@gmail.com" className="text-gray-400 hover:text-gray-300 transition duration-200">
+                saiprathyun85@gmail.com
               </a>
             </div>
           </div>
@@ -177,37 +173,37 @@ const Footer = () => {
             <h3 className={`text-lg font-semibold mb-4 border-b ${isDark ? 'border-gray-700' : 'border-gray-300'} pb-2`}>Company & Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaUsers className="mr-2 text-sm" /> About Us
                 </Link>
               </li>
               <li>
-                <Link to="/team" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/team" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaUserFriends className="mr-2 text-sm" /> Our Team
                 </Link>
               </li>
               <li>
-                <Link to="/contribute" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/contribute" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaHandsHelping className="mr-2 text-sm" /> Contribute
                 </Link>
               </li>
               <li>
-                <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaEnvelope className="mr-2 text-sm" /> Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/faq" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/faq" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaQuestionCircle className="mr-2 text-sm" /> FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaShieldAlt className="mr-2 text-sm" /> Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition duration-200`}>
+                <Link to="/terms-of-service" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'} transition duration-200`}>
                   <FaFileContract className="mr-2 text-sm" /> Terms of Service
                 </Link>
               </li>
@@ -229,10 +225,10 @@ const Footer = () => {
                 className={`px-4 py-2 rounded-md ${isDark
                     ? 'bg-gray-800 border-gray-700 text-white'
                     : 'bg-white border-gray-300 text-gray-800'
-                  } border focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-xs w-full mx-auto sm:mx-0`}
+                  } border focus:outline-none focus:ring-2 focus:ring-gray-500 max-w-xs w-full mx-auto sm:mx-0`}
               />
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-200 font-medium"
+                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition duration-200 font-medium"
               >
                 Subscribe
               </button>
