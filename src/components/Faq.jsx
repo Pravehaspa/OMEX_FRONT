@@ -49,7 +49,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className={`${isDark ? 'bg-[#0B1120] text-white' : 'bg-gray-100 text-black'} py-16 px-6 md:px-20`}>
+    <section id="faq" className={`${isDark ? 'bg-black text-white' : 'bg-white text-black'} py-16 px-6 md:px-20`}>
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
         <p className="text-gray-400 mb-12">
@@ -61,15 +61,15 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className={`p-4 rounded-lg border ${isDark ? 'border-gray-700 bg-[#1A202E]' : 'border-gray-300 bg-white'} cursor-pointer`}
+            className={`p-4 rounded-lg border ${isDark ? 'border-gray-700 bg-black' : 'border-gray-300 bg-white'} cursor-pointer`}
             onClick={() => toggleFAQ(index)}
           >
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">{faq.question}</h3>
               {openIndex === index ? (
-                <FaChevronUp className="w-5 h-5 text-blue-400" />
+                <FaChevronUp className="w-5 h-5" style={{ color: 'var(--muted)' }} />
               ) : (
-                <FaChevronDown className="w-5 h-5 text-blue-400" />
+                <FaChevronDown className="w-5 h-5" style={{ color: 'var(--muted)' }} />
               )}
             </div>
             {openIndex === index && (
