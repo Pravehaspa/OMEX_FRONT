@@ -15,7 +15,6 @@ import {
 import { useTheme } from '../context/ThemeContext';
 import FAQSection from '../components/Faq';
 import { Link } from "react-router-dom";
-import Testimonials from '../components/Testimonials';
 
 function Home() {
   const { isDark } = useTheme();
@@ -28,7 +27,7 @@ function Home() {
       img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=2070&q=80",
       link: "/codegenerator",
       icon: FaRobot,
-      color: "blue",
+      color: "gray",
     },
     {
       title: "Code Optimizer",
@@ -37,7 +36,7 @@ function Home() {
       img: "https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=2070&q=80",
       link: "/optimiser",
       icon: FaLightbulb,
-      color: "purple",
+      color: "slate",
     },
     {
       title: "Content Summarizer",
@@ -46,7 +45,7 @@ function Home() {
       img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=2070&q=80",
       link: "/content-summarizer",
       icon: FaFileAlt,
-      color: "green",
+      color: "zinc",
     },
   ];
 
@@ -85,7 +84,7 @@ function Home() {
       description:
         "Automatically generate comprehensive test cases for your code.",
       href: "/test-case-generator",
-      iconColor: "text-blue-400",
+      iconColor: "text-gray-400",
     },
     {
       id: 2,
@@ -94,7 +93,7 @@ function Home() {
       description:
         "Transform messy code into clean, well-structured code that follows best practices.",
       href: "/code-beautifier",
-      iconColor: "text-purple-400",
+      iconColor: "text-slate-400",
     },
     {
       id: 3,
@@ -103,7 +102,7 @@ function Home() {
       description:
         "Identify and fix bugs, syntax errors, and logical issues in your code.",
       href: "/error-debugger",
-      iconColor: "text-red-400",
+      iconColor: "text-zinc-400",
     },
     {
       id: 4,
@@ -112,7 +111,7 @@ function Home() {
       description:
         "Analyze execution time and memory usage of your code and get optimization recommendations.",
       href: "/performance-analyzer",
-      iconColor: "text-green-400",
+      iconColor: "text-stone-400",
     },
   ];
 
@@ -125,9 +124,9 @@ function Home() {
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden animated-bg">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-10"></div>
-          <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-400 rounded-full filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-20 right-10 w-60 h-60 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 opacity-10"></div>
+          <div className="absolute top-20 left-10 w-40 h-40 bg-gray-400 rounded-full filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-20 right-10 w-60 h-60 bg-gray-600 rounded-full filter blur-3xl opacity-10"></div>
           <div
             className="absolute inset-0 bg-cover bg-center opacity-5"
             style={{
@@ -142,11 +141,11 @@ function Home() {
               isDark ? "glass-dark" : "glass"
             } rounded-3xl py-12 px-6 max-w-4xl mx-auto`}
           >
-            <div className="mb-8 inline-block p-3 bg-blue-600 bg-opacity-20 rounded-full">
-              <FaCode className="text-blue-400 text-3xl" />
+            <div className="mb-8 inline-block p-3 bg-gray-600 bg-opacity-20 rounded-full">
+              <img src="/gup.jpg" alt="Logo" className="w-12 h-12 rounded-full" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Elevate Your Code with <span className="text-blue-400">OMEX</span>
+              Elevate Your Code with <span className="text-gray-800 dark:text-white">OMEX</span>
             </h1>
             <p
               className={`text-xl md:text-2xl ${
@@ -159,7 +158,7 @@ function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/code-tools"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
+                className="bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
               >
                 Explore Tools <FaArrowRight className="ml-2" />
               </Link>
@@ -220,10 +219,10 @@ function Home() {
               className={`inline-flex items-center gap-2 px-6 py-2 rounded-full font-semibold  transition-all duration-200 border-2
             ${
               isDark
-                ? "border-gray-700 text-blue-200 bg-black/30 hover:bg-blue-900 hover:border-blue-700"
-                : "border-blue-300 text-blue-700 bg-blue-50/60 hover:bg-blue-100 hover:border-blue-600"
+                ? "border-gray-600 text-gray-200 bg-black/30 hover:bg-gray-800 hover:border-gray-500"
+                : "border-gray-400 text-gray-800 bg-gray-100 hover:bg-gray-200 hover:border-gray-600"
             }
-            hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 `}
+            hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 `}
             >
               View All Tools <FaArrowRight size={16} />
             </Link>
@@ -239,7 +238,7 @@ function Home() {
         <div className="container mx-auto">
           <h2
             className={`text-4xl font-extrabold text-center mb-10 ${
-              isDark ? "text-blue-200" : "text-blue-800"
+              isDark ? "text-white" : "text-black"
             }`}
           >
             Our Features
@@ -260,7 +259,7 @@ function Home() {
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <FaTools className="text-blue-400 text-3xl mr-3" />
+            <FaTools className="text-gray-600 dark:text-gray-400 text-3xl mr-3" />
             <h2 className="text-3xl font-bold text-center">New Code Tools</h2>
           </div>
           <p
@@ -291,11 +290,11 @@ function Home() {
               to="/code-tools"
               className={`
           inline-flex items-center gap-2
-          bg-blue-600 hover:bg-blue-700
+          bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700
           text-white px-6 py-3 rounded-lg font-semibold
           shadow-md hover:shadow-xl
           transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
+          focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
         `}
               tabIndex={0}
               role="button"
@@ -331,13 +330,10 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
-
       {/* CTA Section */}
       <section
         className={`py-16 px-4 ${
-          isDark ? "bg-slate-600 bg-opacity-10 " : "bg-blue-50"
+          isDark ? "bg-gray-800 bg-opacity-10 " : "bg-gray-50"
         } relative overflow-hidden`}
       >
         <div className="absolute inset-0">
@@ -369,7 +365,7 @@ function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/code-tools"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center"
+                className="bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center"
               >
                 Explore Our Tools <FaArrowRight className="ml-2" />
               </Link>
@@ -447,8 +443,8 @@ const ServiceCard = ({
           className={`inline-block px-6 py-2 rounded-md font-semibold text-base transition duration-200
             ${
               isDark
-                ? "bg-gray-900 text-blue-300 border border-blue-600 hover:bg-blue-800"
-                : "bg-blue-50 text-blue-700 border border-blue-300 hover:bg-blue-100"
+                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
             }
             cursor-pointer select-none`}
           tabIndex={0}
@@ -482,7 +478,7 @@ const FeatureCard = ({
         border border-transparent
         transition-all duration-300
         hover:shadow-2xl hover:shadow-black/30
-        hover:scale-[1.03] hover:border-blue-500
+        hover:scale-[1.03] hover:border-gray-500
         focus-within:shadow-2xl focus-within:scale-[1.03]
       `}
       tabIndex={0}
@@ -492,7 +488,7 @@ const FeatureCard = ({
       </div>
       <h3
         className={`text-xl font-bold text-center mb-2 ${
-          isDark ? "text-blue-100" : "text-blue-900"
+          isDark ? "text-white" : "text-black"
         }`}
       >
         {title}
@@ -517,8 +513,8 @@ const FeatureCard = ({
             transition-colors duration-200
             ${
               isDark
-                ? "bg-blue-900 text-blue-200 border border-blue-600 hover:bg-blue-700"
-                : "bg-blue-50 text-blue-800 border border-blue-300 hover:bg-blue-200"
+                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
             }
             cursor-pointer select-none
           `}
@@ -548,7 +544,7 @@ const FeatureCard2 = ({
         border border-transparent
         transition-all duration-300
         hover:shadow-2xl hover:shadow-black/30
-        hover:scale-[1.03] hover:border-blue-500
+        hover:scale-[1.03] hover:border-gray-500
         focus-within:shadow-2xl focus-within:scale-[1.03]
       `}
       tabIndex={0}
@@ -558,7 +554,7 @@ const FeatureCard2 = ({
       </div>
       <h3
         className={`text-xl font-bold text-center mb-2 ${
-          isDark ? "text-blue-100" : "text-blue-900"
+          isDark ? "text-white" : "text-black"
         }`}
       >
         {title}
@@ -583,8 +579,8 @@ const FeatureCard2 = ({
             transition-colors duration-200
             ${
               isDark
-                ? "bg-blue-900 text-blue-200 border border-blue-600 hover:bg-blue-700"
-                : "bg-blue-50 text-blue-800 border border-blue-300 hover:bg-blue-200"
+                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
             }
             cursor-pointer select-none
           `}
@@ -604,7 +600,7 @@ const StepCard = ({ number, title, description }) => {
         isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
       } rounded-lg p-6 shadow-lg border`}
     >
-      <div className="text-5xl font-bold text-blue-400 opacity-50 mb-4">
+      <div className="text-5xl font-bold text-gray-400 opacity-50 mb-4">
         {number}
       </div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
