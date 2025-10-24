@@ -260,21 +260,19 @@ const ContributorGuide = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {steps.map((step, index) => (
-              <div key={index} className={`rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${isDark
+              <div key={index} className={`rounded-xl shadow-lg p-6 border-l-4 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${isDark
                   ? 'bg-gray-800 border border-gray-700'
                   : 'bg-white border border-gray-300'
                 }`} style={{
-                  borderLeftColor: '#3B82F6',
-                  background: isDark
-                    ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(31, 41, 55, 1) 100%)'
-                    : 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 1) 100%)'
+                  borderLeftColor: 'var(--glass-border)',
+                  background: 'none'
                 }}>
                 <div className="flex items-center mb-4">
-                  <div className="bg-blue-500 p-3 rounded-full mr-4 text-white shadow-md">
+                  <div className="p-3 rounded-full mr-4 text-white shadow-md" style={{ background: 'var(--card-bg)' }}>
                     {step.icon}
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-blue-500">STEP {index + 1}</span>
+                    <span className="text-sm font-semibold">STEP {index + 1}</span>
                     <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-800'
                       }`}>{step.title}</h3>
                   </div>
