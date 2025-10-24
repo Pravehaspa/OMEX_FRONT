@@ -22,6 +22,10 @@ app.get('/user/:id', (req, res) => {
   const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+    ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/g, '')
+    : '';
+
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
 
   // Scan security issues
@@ -33,11 +37,9 @@ app.get('/user/:id', (req, res) => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/ai/analyze-security`,
+        `${BACKEND_URL}/ai/analyze-security`,
         { code, language }
       );
-
-  
 
       setReport(res.data); // ✅ Gemini text output
       toast.success("Security scan completed!");
@@ -49,14 +51,14 @@ app.get('/user/:id', (req, res) => {
     }
   };
 
-  // Clear inputs
+  // Fix text color for light theme
   const handleClearAll = () => {
     setCode("");
     setReport("");
     toast.success("All cleared!");
   };
 
-  // Copy output
+  // Fix text color for light theme
   const handleCopyReport = () => {
     navigator.clipboard.writeText(report);
     toast.success("Report copied to clipboard!");
