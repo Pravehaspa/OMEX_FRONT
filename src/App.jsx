@@ -1,5 +1,5 @@
 import "prismjs/themes/prism-tomorrow.css";
-import "./styles/glassmorphism.css";
+import "./styles/theme.css";
 
 import { useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
