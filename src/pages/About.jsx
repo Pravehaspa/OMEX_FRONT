@@ -104,7 +104,7 @@ const About = () => {
             <div className="absolute top-0 right-0 w-32 h-32 -mr-10 -mt-10 opacity-10">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill="#4F46E5"
+                  fill="currentColor"
                   d="M45.3,-51.2C58.3,-42.3,68.5,-27.2,73.8,-9.5C79.1,8.1,79.4,28.3,69.9,41.8C60.4,55.3,41.1,62.1,21.8,69.2C2.6,76.3,-16.6,83.7,-30.1,77.8C-43.6,71.9,-51.5,52.7,-59.3,34.9C-67.1,17.1,-74.9,0.7,-73.1,-15.2C-71.3,-31.1,-60,-46.4,-45.7,-55.3C-31.4,-64.2,-14.1,-66.7,1.3,-68.2C16.7,-69.7,32.3,-60.1,45.3,-51.2Z"
                   transform="translate(100 100)"
                 />
@@ -692,7 +692,7 @@ const About = () => {
                 ></div>
               </div>
               <div className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
-                <h3 className="text-xl font-bold mb-2">2021 - The Beginning</h3>
+                <h3 className="text-xl font-bold mb-2">2024 - The Beginning</h3>
                 <p>
                   OMEX started as a small project by a group of developers
                   frustrated with the limitations of existing code analysis
@@ -717,12 +717,9 @@ const About = () => {
                 ></div>
               </div>
               <div className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
-                <h3 className="text-xl font-bold mb-2">2022 - Expansion</h3>
+                <h3 className="text-xl font-bold mb-2">2025 - Expansion</h3>
                 <p>
-                  After gaining traction in the developer community, we expanded
-                  our team and added support for multiple programming languages.
-                  The code generation feature was introduced, quickly becoming
-                  our most popular tool.
+                  Collected feedback from users
                 </p>
               </div>
             </div>
@@ -742,9 +739,9 @@ const About = () => {
                 ></div>
               </div>
               <div className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
-                <h3 className="text-xl font-bold mb-2">2023 - Present</h3>
+                <h3 className="text-xl font-bold mb-2">2025 - Present</h3>
                 <p>
-                  Today, OMEX is used by thousands of developers worldwide.
+                  Today, OMEX is used by 50-60 
                   We've integrated cutting-edge AI models, expanded our suite of
                   tools, and built a vibrant community around our platform. We
                   continue to innovate and improve, with exciting new features
