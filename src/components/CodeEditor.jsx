@@ -251,32 +251,32 @@ function CodeEditor(props) {
               <Markdown
                 rehypePlugins={[rehypeHighlight]}
                 components={{
-                  code: ({ node, ...props }) => (
+                  code: ({ ...props }) => (
                     <pre {...props} className={`p-4 rounded-lg ${
                       isDark ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'
                     }`}>
                       <code {...props} />
                     </pre>
                   ),
-                  p: ({ node, ...props }) => (
+                  p: ({ ...props }) => (
                     <p {...props} className="mb-4" />
                   ),
-                  h1: ({ node, ...props }) => (
+                  h1: ({ ...props }) => (
                     <h1 {...props} className="text-2xl font-bold mb-4" />
                   ),
-                  h2: ({ node, ...props }) => (
+                  h2: ({ ...props }) => (
                     <h2 {...props} className="text-xl font-bold mb-3" />
                   ),
-                  h3: ({ node, ...props }) => (
+                  h3: ({ ...props }) => (
                     <h3 {...props} className="text-lg font-bold mb-2" />
                   ),
-                  ul: ({ node, ...props }) => (
+                  ul: ({ ...props }) => (
                     <ul {...props} className="list-disc pl-5 mb-4" />
                   ),
-                  ol: ({ node, ...props }) => (
+                  ol: ({ ...props }) => (
                     <ol {...props} className="list-decimal pl-5 mb-4" />
                   ),
-                  li: ({ node, ...props }) => (
+                  li: ({ ...props }) => (
                     <li {...props} className="mb-1" />
                   ),
                 }}

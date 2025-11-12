@@ -1,16 +1,37 @@
+import React from 'react'
+import { useState, useEffect } from 'react';
+import CodeEditor from '../components/CodeEditor'
+import Loader from '../components/Loader'
 import { useTheme } from '../context/ThemeContext';
+
 
 function CodeGenerator() {
   const { isDark } = useTheme();
-
-  return (
-    <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800'}`}>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Page Coming Soon</h1>
-        <p className="text-lg">This feature is under development. Stay tuned!</p>
+  
+  const [loading, setLoading] = useState(true);
+  const URL=`${import.meta.env.VITE_BACKEND_URL}/ai/get-code`
+  const prompt=`write a c++ code to find factorial of a given number`
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      window.scrollTo(0, 0);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+    if (loading) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
+        <Loader fullscreen size="xl" color="purple" text="Loading Code Generator Tool..." />
       </div>
-    </div>
-  );
+    );
+  }
+  return (
+    <>
+    <div className=''>
+      <CodeEditor URL={URL} prompt={prompt} />
+      </div>  
+    </>
+  )
 }
-
-export default CodeGenerator;
+// Omex 
+export default CodeGenerator
