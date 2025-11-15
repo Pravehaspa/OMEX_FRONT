@@ -68,12 +68,6 @@ function Home() {
       description: "Track progress with powerful analytics.",
       href: "/analytics",
     },
-    {
-      icon: FaExchangeAlt,
-      title: "Seamless Integration",
-      description: "Easily connect with your favorite tools.",
-      href: "/integration",
-    },
   ];
 
   const toolsData = [
