@@ -16,20 +16,20 @@ body.dark-mode {
 }
 
 body.light-mode {
-  --page-bg: #ffffff;
-  --card-bg: #f5f5f5;
-  --text: #000000;
-  --subtle-text: #555555;
-  --highlight: #000000;
-  --highlight-secondary: #555555;
-  --border: #dddddd;
-  --button-bg: #000000;
+  --page-bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --subtle-text: #666666;
+  --highlight: #2563eb;
+  --highlight-secondary: #3b82f6;
+  --border: #e5e7eb;
+  --button-bg: #2563eb;
   --button-text: #ffffff;
-  --button-hover-bg: #1a1a1a;
+  --button-hover-bg: #1d4ed8;
   --button-hover-text: #ffffff;
-  --navbar-bg: rgba(255, 255, 255, 0.8);
-  --footer-bg: #f5f5f5;
-  --footer-text: #555555;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: #f9fafb;
+  --footer-text: #6b7280;
 }
 
 /* Override Tailwind color classes to use black and white theme */
@@ -53,10 +53,35 @@ body.dark-mode [class*="bg-gray-"], body.dark-mode [class*="bg-slate-"], body.da
   background-color: #000000 !important;
 }
 
+body.dark-mode [class*="border-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  border-color: var(--border) !important;
+}
+
 body.light-mode [class*="border-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
   border-color: var(--border) !important;
 }
 
-body.dark-mode [class*="border-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
-  border-color: var(--border) !important;
+/* Enhanced visual appeal */
+button {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark-mode button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Better card shadows */
+body.light-mode [class*="bg-"]:not([class*="transparent"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.dark-mode [class*="bg-"]:not([class*="transparent"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
