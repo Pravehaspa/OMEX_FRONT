@@ -408,10 +408,12 @@ const ServiceCard = ({
       className={`rounded-lg overflow-hidden ${
         isDark ? "glass-dark glass-dark-card" : "glass glass-card"
       }
-        transition duration-300
-        hover:shadow-lg hover:shadow-gray-900
-        hover:scale-102 hover:border-2 hover:border-${color}-500
-        focus-within:shadow-lg focus-within:scale-102`}
+        transition-all duration-300 ease-in-out
+        hover:shadow-xl hover:shadow-gray-900/50
+        hover:scale-105 hover:-translate-y-1
+        active:scale-95 active:translate-y-0
+        focus-within:shadow-xl focus-within:scale-105 focus-within:-translate-y-1
+        cursor-pointer`}
       tabIndex={0}
     >
       <div
@@ -477,10 +479,12 @@ const FeatureCard = ({
         ${isDark ? "bg-gray-900" : "bg-white"}
         shadow-md
         border border-transparent
-        transition-all duration-300
+        transition-all duration-300 ease-in-out
         hover:shadow-2xl hover:shadow-black/30
-        hover:scale-[1.03] hover:border-gray-500
-        focus-within:shadow-2xl focus-within:scale-[1.03]
+        hover:scale-105 hover:-translate-y-2 hover:border-gray-500
+        active:scale-95 active:translate-y-0
+        focus-within:shadow-2xl focus-within:scale-105 focus-within:-translate-y-2
+        cursor-pointer
       `}
       tabIndex={0}
     >
@@ -543,10 +547,12 @@ const FeatureCard2 = ({
         ${isDark ? "bg-gray-800" : "bg-white"}
         shadow-md
         border border-transparent
-        transition-all duration-300
+        transition-all duration-300 ease-in-out
         hover:shadow-2xl hover:shadow-black/30
-        hover:scale-[1.03] hover:border-gray-500
-        focus-within:shadow-2xl focus-within:scale-[1.03]
+        hover:scale-105 hover:-translate-y-2 hover:border-gray-500
+        active:scale-95 active:translate-y-0
+        focus-within:shadow-2xl focus-within:scale-105 focus-within:-translate-y-2
+        cursor-pointer
       `}
       tabIndex={0}
     >
