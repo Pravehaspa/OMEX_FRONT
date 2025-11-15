@@ -9,13 +9,7 @@ import Loader from '../components/Loader';
 import { useTheme } from '../context/ThemeContext';
 
 function ErrorDebugger() {
-  const [code, setCode] = useState(`function calculateAverage(numbers) {
-  let sum = 0;
-  for (let i = 0; i <= numbers.length; i++) {
-    sum += numbers[i];
-  }
-  return sum / numbers.length;
-}`);
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState('JavaScript');
   const [debugResult, setDebugResult] = useState('');
   const [loading, setLoading] = useState(true);
@@ -26,6 +20,85 @@ function ErrorDebugger() {
     : '';
 
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
+
+  // Update code when language changes
+  useEffect(() => {
+    if (language === 'JavaScript') {
+      setCode(`function calculateAverage(numbers) {
+  let sum = 0;
+  for (let i = 0; i <= numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum / numbers.length;
+}`);
+    } else if (language === 'Python') {
+      setCode(`def calculate_average(numbers):
+    sum = 0
+    for i in range(len(numbers) + 1):
+        sum += numbers[i]
+    return sum / len(numbers)`);
+    } else if (language === 'Java') {
+      setCode(`public class Calculator {
+    public static double calculateAverage(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i <= numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return (double) sum / numbers.length;
+    }
+}`);
+    } else if (language === 'C++') {
+      setCode(`#include <vector>
+
+double calculateAverage(std::vector<int> numbers) {
+    int sum = 0;
+    for (size_t i = 0; i <= numbers.size(); i++) {
+        sum += numbers[i];
+    }
+    return static_cast<double>(sum) / numbers.size();
+}`);
+    } else if (language === 'C#') {
+      setCode(`using System;
+
+public class Calculator {
+    public static double CalculateAverage(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i <= numbers.Length; i++) {
+            sum += numbers[i];
+        }
+        return (double)sum / numbers.Length;
+    }
+}`);
+    } else if (language === 'PHP') {
+      setCode(`<?php
+function calculateAverage($numbers) {
+    $sum = 0;
+    for ($i = 0; $i <= count($numbers); $i++) {
+        $sum += $numbers[$i];
+    }
+    return $sum / count($numbers);
+}
+?>`);
+    } else if (language === 'Go') {
+      setCode(`package main
+
+func calculateAverage(numbers []int) float64 {
+    sum := 0
+    for i := 0; i <= len(numbers); i++ {
+        sum += numbers[i]
+    }
+    return float64(sum) / float64(len(numbers))
+}`);
+    } else if (language === 'Ruby') {
+      setCode(`def calculate_average(numbers)
+  sum = 0
+  for i in 0..numbers.length
+    sum += numbers[i]
+  end
+  sum.to_f / numbers.length
+end`);
+    }
+  }, [language]);
 
   const debugCode = async () => {
     if (!code.trim()) {
