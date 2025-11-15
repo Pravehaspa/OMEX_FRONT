@@ -35,6 +35,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Contribute from "./pages/Contribute";
 import ContributorsLeaderboard from "./components/ContributorsLeaderboard";
 import Insights from "./pages/Insights";
+import AutomationTools from "./pages/AutomationTools";
 
 // Theme context
 import { ThemeProvider } from './context/ThemeContext';
@@ -66,6 +67,7 @@ function App() {
               <Route path="/codecompare" element={<CodeCompare />} />
               <Route path="/about" element={<About />} />
               <Route path="/insights" element={<Insights />} />
+              <Route path="/automation" element={<AutomationTools />} />
               <Route path="/contributors" element={<ContributorsLeaderboard />} />
 
               {/* Code tools */}
