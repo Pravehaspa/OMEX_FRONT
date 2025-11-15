@@ -9,10 +9,7 @@ import Loader from '../components/Loader';
 import { useTheme } from '../context/ThemeContext';
 
 function CodeBeautifier() {
-  const [code, setCode] = useState(`function calculateTotal(items,tax){
-let total=0;for(let i=0;i<items.length;i++){
-total+=items[i].price;}
-return total+(total*tax);}`);
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState('JavaScript');
   const [beautifiedCode, setBeautifiedCode] = useState('');
   const [loading, setLoading] = useState(true);
@@ -23,6 +20,35 @@ return total+(total*tax);}`);
     : '';
 
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby", "HTML", "CSS"];
+
+  // Update code when language changes
+  useEffect(() => {
+    if (language === 'JavaScript') {
+      setCode(`function calculateTotal(items,tax){let total=0;for(let i=0;i<items.length;i++){total+=items[i].price;}return total+(total*tax);}`);
+    } else if (language === 'Python') {
+      setCode(`def calculate_total(items,tax):
+    total=0
+    for item in items:
+        total+=item['price']
+    return total+(total*tax)`);
+    } else if (language === 'Java') {
+      setCode(`public class Calculator{public static double calculateTotal(List<Item>items,double tax){double total=0;for(Item item:items){total+=item.getPrice();}return total+(total*tax);}}`);
+    } else if (language === 'C++') {
+      setCode(`double calculateTotal(vector<Item>items,double tax){double total=0;for(auto&item:items){total+=item.price;}return total+(total*tax);}`);
+    } else if (language === 'C#') {
+      setCode(`public static double CalculateTotal(List<Item>items,double tax){double total=0;foreach(var item in items){total+=item.Price;}return total+(total*tax);}`);
+    } else if (language === 'PHP') {
+      setCode(`function calculateTotal($items,$tax){$total=0;foreach($items as $item){$total+=$item['price'];}return $total+($total*$tax);}`);
+    } else if (language === 'Go') {
+      setCode(`func calculateTotal(items []Item,tax float64)float64{total:=0.0;for _,item:=range items{total+=item.Price}return total+(total*tax)}`);
+    } else if (language === 'Ruby') {
+      setCode(`def calculate_total(items,tax)total=0;items.each{|item|total+=item[:price]};total+(total*tax);end`);
+    } else if (language === 'HTML') {
+      setCode(`<div class="container"><h1>Title</h1><p>This is a paragraph.</p><ul><li>Item 1</li><li>Item 2</li></ul></div>`);
+    } else if (language === 'CSS') {
+      setCode(`.container{margin:0 auto;max-width:1200px;padding:20px;}.title{font-size:24px;color:#333;margin-bottom:10px;}.paragraph{font-size:16px;line-height:1.5;}`);
+    }
+  }, [language]);
 
   const beautifyCode = async () => {
     if (!code.trim()) {
