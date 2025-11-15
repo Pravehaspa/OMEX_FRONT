@@ -34,6 +34,7 @@ import Team from "./pages/Team";
 import TermsOfService from "./pages/TermsOfService";
 import Contribute from "./pages/Contribute";
 import ContributorsLeaderboard from "./components/ContributorsLeaderboard";
+import Insights from "./pages/Insights";
 
 // Theme context
 import { ThemeProvider } from './context/ThemeContext';
@@ -41,6 +42,7 @@ import { ThemeProvider } from './context/ThemeContext';
 // Extra components
 import BackToTopButton from "./components/BackToTopButton";
 import ContributorGuide from "./pages/ContributorGuide";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,6 +65,7 @@ function App() {
               <Route path="/codecomplexity" element={<CodeComplexity />} />
               <Route path="/codecompare" element={<CodeCompare />} />
               <Route path="/about" element={<About />} />
+              <Route path="/insights" element={<Insights />} />
               <Route path="/contributors" element={<ContributorsLeaderboard />} />
 
               {/* Code tools */}
@@ -88,6 +91,7 @@ function App() {
           <Footer />
           {!isMenuOpen && <BackToTopButton />}
           <Toaster position="top-right" />
+          <Chatbot />
         </div>
       </Router>
     </ThemeProvider>

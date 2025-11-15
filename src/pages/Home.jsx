@@ -54,25 +54,25 @@ function Home() {
       icon: FaLightbulb,
       title: "AI-Powered Insights",
       description: "Get smart recommendations and insights from AI.",
-      link: "/insights",
+      href: "/insights",
     },
     {
       icon: FaRobot,
       title: "Automation Tools",
       description: "Automate repetitive tasks and save time.",
-      link: "/automation",
+      href: "/automation",
     },
     {
       icon: FaChartLine,
       title: "Analytics Dashboard",
       description: "Track progress with powerful analytics.",
-      link: "/analytics",
+      href: "/analytics",
     },
     {
       icon: FaExchangeAlt,
       title: "Seamless Integration",
       description: "Easily connect with your favorite tools.",
-      link: "/integration",
+      href: "/integration",
     },
   ];
 
