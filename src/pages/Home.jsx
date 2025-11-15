@@ -15,10 +15,15 @@ import {
 } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
 import FAQSection from '../components/Faq';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuroraText from '../components/AuroraText';
+import NeonGradientCard from '../components/NeonGradientCard';
+import LightRays from '../components/LightRays';
+import { InteractiveHoverButton } from '@/registry/magicui/interactive-hover-button';
 
 function Home() {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
 
   const services = [
     {
@@ -119,34 +124,22 @@ function Home() {
   return (
     <div
       className={`${
-        isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-800"
+        isDark ? "bg-black text-white" : "bg-white text-black"
       } min-h-screen`}
     >
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden animated-bg">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 opacity-10"></div>
-          <div className="absolute top-20 left-10 w-40 h-40 bg-gray-400 rounded-full filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-20 right-10 w-60 h-60 bg-gray-600 rounded-full filter blur-3xl opacity-10"></div>
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-5"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
-            }}
-          ></div>
-        </div>
         <div className="container mx-auto text-center relative z-10">
           <div
             className={`${
               isDark ? "glass-dark" : "glass"
             } rounded-3xl py-12 px-6 max-w-4xl mx-auto`}
           >
-            <div className="mb-8 inline-block p-3 bg-gray-600 bg-opacity-20 rounded-full">
+            <div className="mb-8 inline-block p-3 bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-10 rounded-full">
               <img src="/gup.jpg" alt="Logo" className="w-12 h-12 rounded-full" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Elevate Your Code with <span className="text-gray-800 dark:text-white">OMEX</span>
+              <AuroraText>Elevate Your Code with OMEX</AuroraText>
             </h1>
             <p
               className={`text-xl md:text-2xl ${
@@ -157,20 +150,13 @@ function Home() {
               analyze code with confidence.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                to="/code-tools"
-                className="bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
-              >
-                Explore Tools <FaArrowRight className="ml-2" />
-              </Link>
+              <InteractiveHoverButton onClick={() => navigate('/code-tools')}>Explore Tools</InteractiveHoverButton>
               <Link
                 to="/about"
                 className={`${
                   isDark
-                    ? "bg-gray-700 hover:bg-gray-600"
-                    : "bg-white hover:bg-gray-100 border border-gray-200"
-                } text-${
-                  isDark ? "white" : "gray-800"
+                    ? "bg-black hover:bg-gray-900 text-white border border-white"
+                    : "bg-black hover:bg-gray-900 text-white border border-black"
                 } px-8 py-3 rounded-lg font-medium transition-all duration-200`}
               >
                 Learn More
@@ -183,7 +169,7 @@ function Home() {
       {/* Featured Services Section */}
       <section
         className={`py-16 px-4 ${
-          isDark ? "bg-gray-800" : "bg-white"
+          isDark ? "bg-black" : "bg-white"
         } relative overflow-hidden`}
       >
         <div className="absolute inset-0 opacity-5">
@@ -220,10 +206,10 @@ function Home() {
               className={`inline-flex items-center gap-2 px-6 py-2 rounded-full font-semibold  transition-all duration-200 border-2
             ${
               isDark
-                ? "border-gray-600 text-gray-200 bg-black/30 hover:bg-gray-800 hover:border-gray-500"
-                : "border-gray-400 text-gray-800 bg-gray-100 hover:bg-gray-200 hover:border-gray-600"
+                ? "border-white text-white bg-black/30 hover:bg-white hover:text-black"
+                : "border-black text-black bg-white hover:bg-black hover:text-white"
             }
-            hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 `}
+            hover:shadow-md focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 `}
             >
               View All Tools <FaArrowRight size={16} />
             </Link>
@@ -234,7 +220,7 @@ function Home() {
       {/* Features Section */}
 
       <section
-        className={`py-16 px-4 ${isDark ? "bg-gray-900" : "bg-gray-200"}`}
+        className={`py-16 px-4 ${isDark ? "bg-black" : "bg-white"}`}
       >
         <div className="container mx-auto">
           <h2
@@ -255,7 +241,7 @@ function Home() {
       {/* Code Tools Section */}
       <section
         className={`py-16 px-4 ${
-          isDark ? "bg-gray-800 bg-opacity-50" : "bg-gray-100"
+          isDark ? "bg-black" : "bg-white"
         }`}
       >
         <div className="container mx-auto">
@@ -291,11 +277,11 @@ function Home() {
               to="/code-tools"
               className={`
           inline-flex items-center gap-2
-          bg-black hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700
-          text-white px-6 py-3 rounded-lg font-semibold
+          ${isDark ? 'bg-white hover:bg-gray-100 text-black' : 'bg-black hover:bg-gray-900 text-white'}
+          px-6 py-3 rounded-lg font-semibold
           shadow-md hover:shadow-xl
           transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
+          focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
         `}
               tabIndex={0}
               role="button"
@@ -334,7 +320,7 @@ function Home() {
       {/* CTA Section */}
       <section
         className={`py-16 px-4 ${
-          isDark ? "bg-gray-800 bg-opacity-10 " : "bg-gray-50"
+          isDark ? "bg-black" : "bg-white"
         } relative overflow-hidden`}
       >
         <div className="absolute inset-0">
@@ -404,62 +390,52 @@ const ServiceCard = ({
   color,
 }) => {
   return (
-    <div
-      className={`rounded-lg overflow-hidden ${
-        isDark ? "glass-dark glass-dark-card" : "glass glass-card"
-      }
-        transition-all duration-300 ease-in-out
-        hover:shadow-xl hover:shadow-gray-900/50
-        hover:scale-105 hover:-translate-y-1
-        active:scale-95 active:translate-y-0
-        focus-within:shadow-xl focus-within:scale-105 focus-within:-translate-y-1
-        cursor-pointer`}
-      tabIndex={0}
-    >
-      <div
-        className={`h-3 ${isDark ? `bg-${color}-500` : `bg-${color}-600`}`}
-      ></div>
+    <NeonGradientCard className="h-full">
+      <div className="w-full h-full">
+        <div
+          className={`h-3 ${isDark ? `bg-${color}-500` : `bg-${color}-600`}`}
+        ></div>
 
-      <div className="p-6">
-        <div className="flex items-center mb-4">
-          <div
-            className={`p-3 rounded-full ${
-              isDark ? `bg-${color}-500 bg-opacity-20` : `bg-${color}-100`
-            }`}
-          >
-            <Icon className={`text-${color}-500 text-xl`} />
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <div
+              className={`p-3 rounded-full ${
+                isDark ? `bg-${color}-500 bg-opacity-20` : `bg-${color}-100`
+              }`}
+            >
+              <Icon className={`text-${color}-500 text-xl`} />
+            </div>
+            <h3 className="ml-4 text-xl font-bold neon-text">{title}</h3>
           </div>
-          <h3 className="ml-4 text-xl font-bold">{title}</h3>
+
+          <div className="relative h-40 mb-6 rounded-lg overflow-hidden">
+            <img src={img} alt={title} className="w-full h-full object-cover" />
+          </div>
+
+          <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+            {description}
+          </p>
+
+          <Link
+            to={link}
+            className={`inline-block px-6 py-2 rounded-md font-semibold text-base transition duration-200
+              ${
+                isDark
+                  ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                  : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
+              }
+              cursor-pointer select-none`}
+            tabIndex={0}
+            role="button"
+            aria-label={`Try ${title}`}
+          >
+            <span className="flex items-center gap-2">
+              Try {title} <FaArrowRight size={14} />
+            </span>
+          </Link>
         </div>
-
-        <div className="relative h-40 mb-6 rounded-lg overflow-hidden">
-          <img src={img} alt={title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-        </div>
-
-        <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-          {description}
-        </p>
-
-        <Link
-          to={link}
-          className={`inline-block px-6 py-2 rounded-md font-semibold text-base transition duration-200
-            ${
-              isDark
-                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
-                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
-            }
-            cursor-pointer select-none`}
-          tabIndex={0}
-          role="button"
-          aria-label={`Try ${title}`}
-        >
-          <span className="flex items-center gap-2">
-            Try {title} <FaArrowRight size={14} />
-          </span>
-        </Link>
       </div>
-    </div>
+    </NeonGradientCard>
   );
 };
 
@@ -472,62 +448,41 @@ const FeatureCard = ({
   isDark,
 }) => {
   return (
-    <div
-      className={`
-        flex flex-col items-center p-8
-        rounded-2xl justify-between
-        ${isDark ? "bg-gray-900" : "bg-white"}
-        shadow-md
-        border border-transparent
-        transition-all duration-300 ease-in-out
-        hover:shadow-2xl hover:shadow-black/30
-        hover:scale-105 hover:-translate-y-2 hover:border-gray-500
-        active:scale-95 active:translate-y-0
-        focus-within:shadow-2xl focus-within:scale-105 focus-within:-translate-y-2
-        cursor-pointer
-      `}
-      tabIndex={0}
-    >
-      <div className="mb-4">
-        <Icon className={`text-3xl drop-shadow-lg ${iconColor}`} />
-      </div>
-      <h3
-        className={`text-xl font-bold text-center mb-2 ${
-          isDark ? "text-white" : "text-black"
-        }`}
-      >
-        {title}
-      </h3>
-      <p
-        className={`text-center mb-6 px-2 ${
-          isDark ? "text-gray-300" : "text-gray-700"
-        }`}
-      >
-        {description}
-      </p>
-      <a
-        href={href}
-        tabIndex={0}
-        role="button"
-        aria-label={`Learn more about ${title}`}
-      >
-        <span
-          className={`
-            inline-flex items-center gap-2
-            px-5 py-2 rounded-md font-semibold text-base
-            transition-colors duration-200
-            ${
-              isDark
-                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
-                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
-            }
-            cursor-pointer select-none
-          `}
+    <NeonGradientCard className="h-full">
+      <div className="flex flex-col items-center p-8 justify-between h-full">
+        <div className="mb-4">
+          <Icon className={`text-3xl drop-shadow-lg ${iconColor}`} />
+        </div>
+        <h3 className="text-xl font-bold text-center mb-2 neon-text">
+          {title}
+        </h3>
+        <p className="text-center mb-6 px-2">
+          {description}
+        </p>
+        <a
+          href={href}
+          tabIndex={0}
+          role="button"
+          aria-label={`Learn more about ${title}`}
         >
-          Learn More <FaArrowRight size={16} />
-        </span>
-      </a>
-    </div>
+          <span
+            className={`
+              inline-flex items-center gap-2
+              px-5 py-2 rounded-md font-semibold text-base
+              transition-colors duration-200
+              ${
+                isDark
+                  ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                  : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
+              }
+              cursor-pointer select-none
+            `}
+          >
+            Learn More <FaArrowRight size={16} />
+          </span>
+        </a>
+      </div>
+    </NeonGradientCard>
   );
 };
 
@@ -540,62 +495,41 @@ const FeatureCard2 = ({
   isDark,
 }) => {
   return (
-    <div
-      className={`
-        flex flex-col items-center p-8
-        rounded-2xl justify-between
-        ${isDark ? "bg-gray-800" : "bg-white"}
-        shadow-md
-        border border-transparent
-        transition-all duration-300 ease-in-out
-        hover:shadow-2xl hover:shadow-black/30
-        hover:scale-105 hover:-translate-y-2 hover:border-gray-500
-        active:scale-95 active:translate-y-0
-        focus-within:shadow-2xl focus-within:scale-105 focus-within:-translate-y-2
-        cursor-pointer
-      `}
-      tabIndex={0}
-    >
-      <div className="mb-4">
-        <Icon className={`text-3xl drop-shadow-lg ${iconColor}`} />
-      </div>
-      <h3
-        className={`text-xl font-bold text-center mb-2 ${
-          isDark ? "text-white" : "text-black"
-        }`}
-      >
-        {title}
-      </h3>
-      <p
-        className={`text-center mb-6 px-2 ${
-          isDark ? "text-gray-300" : "text-gray-700"
-        }`}
-      >
-        {description}
-      </p>
-      <a
-        href={href}
-        tabIndex={0}
-        role="button"
-        aria-label={`Learn more about ${title}`}
-      >
-        <span
-          className={`
-            inline-flex items-center gap-2
-            px-5 py-2 rounded-md font-semibold text-base
-            transition-colors duration-200
-            ${
-              isDark
-                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
-                : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
-            }
-            cursor-pointer select-none
-          `}
+    <NeonGradientCard className="h-full">
+      <div className="flex flex-col items-center p-8 justify-between h-full">
+        <div className="mb-4">
+          <Icon className={`text-3xl drop-shadow-lg ${iconColor}`} />
+        </div>
+        <h3 className="text-xl font-bold text-center mb-2 neon-text">
+          {title}
+        </h3>
+        <p className="text-center mb-6 px-2">
+          {description}
+        </p>
+        <a
+          href={href}
+          tabIndex={0}
+          role="button"
+          aria-label={`Learn more about ${title}`}
         >
-          Learn More <FaArrowRight size={16} />
-        </span>
-      </a>
-    </div>
+          <span
+            className={`
+              inline-flex items-center gap-2
+              px-5 py-2 rounded-md font-semibold text-base
+              transition-colors duration-200
+              ${
+                isDark
+                  ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-700"
+                  : "bg-gray-100 text-black border border-gray-400 hover:bg-gray-200"
+              }
+              cursor-pointer select-none
+            `}
+          >
+            Learn More <FaArrowRight size={16} />
+          </span>
+        </a>
+      </div>
+    </NeonGradientCard>
   );
 };
 
