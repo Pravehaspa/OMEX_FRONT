@@ -10,10 +10,7 @@ import Loader from '../components/Loader';
 import { useTheme } from '../context/ThemeContext';
 
 function TestCaseGenerator() {
-  const [code, setCode] = useState(`function factorial(n) {
-  if (n <= 1) return 1;
-  return n * factorial(n - 1);
-}`);
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState('JavaScript');
   const [testCases, setTestCases] = useState('');
   const [loading, setLoading] = useState(true);
@@ -24,6 +21,92 @@ function TestCaseGenerator() {
     : '';
 
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
+
+  // Update code when language changes
+  useEffect(() => {
+    if (language === 'JavaScript') {
+      setCode(`function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}`);
+    } else if (language === 'Python') {
+      setCode(`def factorial(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * factorial(n - 1)`);
+    } else if (language === 'Java') {
+      setCode(`public class Factorial {
+    public static int factorial(int n) {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(factorial(5));
+    }
+}`);
+    } else if (language === 'C++') {
+      setCode(`#include <iostream>
+
+int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    std::cout << factorial(5) << std::endl;
+    return 0;
+}`);
+    } else if (language === 'C#') {
+      setCode(`using System;
+
+class Program {
+    static int Factorial(int n) {
+        if (n <= 1) return 1;
+        return n * Factorial(n - 1);
+    }
+
+    static void Main() {
+        Console.WriteLine(Factorial(5));
+    }
+}`);
+    } else if (language === 'PHP') {
+      setCode(`<?php
+function factorial($n) {
+    if ($n <= 1) return 1;
+    return $n * factorial($n - 1);
+}
+
+echo factorial(5);
+?>`);
+    } else if (language === 'Go') {
+      setCode(`package main
+
+import "fmt"
+
+func factorial(n int) int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+func main() {
+    fmt.Println(factorial(5))
+}`);
+    } else if (language === 'Ruby') {
+      setCode(`def factorial(n)
+  if n <= 1
+    return 1
+  else
+    return n * factorial(n - 1)
+  end
+end
+
+puts factorial(5)`);
+    }
+  }, [language]);
 
   const generateTestCases = async () => {
     if (!code.trim()) {
