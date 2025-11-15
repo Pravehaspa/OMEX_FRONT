@@ -10,13 +10,7 @@ import Loader from "../components/Loader";
 import { useTheme } from "../context/ThemeContext";
 
 function SecurityScanner() {
-  const [code, setCode] = useState(`// Example vulnerable code
-app.get('/user/:id', (req, res) => {
-  db.query("SELECT * FROM users WHERE id = " + req.params.id, (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});`);
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState("JavaScript");
   const [report, setReport] = useState("");
   const [loading, setLoading] = useState(true);
@@ -27,6 +21,88 @@ app.get('/user/:id', (req, res) => {
     : '';
 
   const languages = ["JavaScript", "Python", "Java", "C++", "C#", "PHP", "Go", "Ruby"];
+
+  // Update code when language changes
+  useEffect(() => {
+    if (language === 'JavaScript') {
+      setCode(`// Example vulnerable code
+app.get('/user/:id', (req, res) => {
+  db.query("SELECT * FROM users WHERE id = " + req.params.id, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});`);
+    } else if (language === 'Python') {
+      setCode(`# Example vulnerable code
+import sqlite3
+
+def get_user(user_id):
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    query = f"SELECT * FROM users WHERE id = {user_id}"
+    cursor.execute(query)
+    result = cursor.fetchone()
+    conn.close()
+    return result`);
+    } else if (language === 'Java') {
+      setCode(`// Example vulnerable code
+public class UserService {
+    public User getUserById(String userId) {
+        String query = "SELECT * FROM users WHERE id = " + userId;
+        // Execute query...
+        return user;
+    }
+}`);
+    } else if (language === 'C++') {
+      setCode(`// Example vulnerable code
+#include <iostream>
+#include <string>
+
+std::string getUserData(std::string userId) {
+    std::string query = "SELECT * FROM users WHERE id = " + userId;
+    // Execute query...
+    return data;
+}`);
+    } else if (language === 'C#') {
+      setCode(`// Example vulnerable code
+using System.Data.SqlClient;
+
+public class UserService {
+    public User GetUserById(string userId) {
+        string connectionString = "Server=myServer;Database=myDB;User Id=myUser;Password=myPassword;";
+        string query = "SELECT * FROM users WHERE id = " + userId;
+        // Execute query...
+        return user;
+    }
+}`);
+    } else if (language === 'PHP') {
+      setCode(`<?php
+// Example vulnerable code
+$userId = $_GET['id'];
+$query = "SELECT * FROM users WHERE id = " . $userId;
+// Execute query...
+?>`);
+    } else if (language === 'Go') {
+      setCode(`// Example vulnerable code
+package main
+
+import (
+    "database/sql"
+    "fmt"
+)
+
+func getUser(userId string) {
+    query := "SELECT * FROM users WHERE id = " + userId
+    // Execute query...
+}`);
+    } else if (language === 'Ruby') {
+      setCode(`# Example vulnerable code
+def get_user(user_id)
+  query = "SELECT * FROM users WHERE id = #{user_id}"
+  # Execute query...
+end`);
+    }
+  }, [language]);
 
   // Scan security issues
   const handleAnalyze = async () => {
