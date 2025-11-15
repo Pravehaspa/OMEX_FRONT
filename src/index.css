@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.24s ease, color 0.24s ease;
   /* default to light mode variables; the js/theme toggle should add dark-mode when needed */
-  background-color: var(--page-bg, #ffffff);
+  /* background-color: var(--page-bg, #ffffff); */
   color: var(--text, #0b0b0b);
 }
 
@@ -47,6 +47,35 @@ body.light-mode ::-webkit-scrollbar-thumb:hover {
 /* Fix for the gap in the UI */
 .grid {
   gap: 1rem !important;
+}
+
+/* Magic UI effects for light theme */
+body.light-mode {
+  background: linear-gradient(-45deg, #fafafa, #f0f0f0, #e0e0e0, #fafafa);
+  background-size: 400% 400%;
+  animation: magicGradient 15s ease infinite;
+}
+
+@keyframes magicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle floating animation for cards in light mode */
+body.light-mode .card-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Glowing effect for buttons in light mode */
+body.light-mode button:hover {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+  transition: box-shadow 0.3s ease;
 }
 
 .h-64 {
