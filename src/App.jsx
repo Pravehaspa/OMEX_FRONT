@@ -36,6 +36,7 @@ import Contribute from "./pages/Contribute";
 import ContributorsLeaderboard from "./components/ContributorsLeaderboard";
 import Insights from "./pages/Insights";
 import AutomationTools from "./pages/AutomationTools";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 
 // Theme context
 import { ThemeProvider } from './context/ThemeContext';
@@ -68,6 +69,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/insights" element={<Insights />} />
               <Route path="/automation" element={<AutomationTools />} />
+              <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/contributors" element={<ContributorsLeaderboard />} />
 
               {/* Code tools */}
