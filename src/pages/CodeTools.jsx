@@ -181,7 +181,7 @@ function CodeTools() {
           </div>
           <p className={`text-xl ${isDark ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto mb-8`}>
             Discover our comprehensive suite of AI-powered development tools designed to enhance your coding experience
-            and boost productivity.
+            and boost productivity. Updated and ready to use!
           </p>
 
           {/* Search and Filter */}
@@ -352,11 +352,11 @@ function CodeTools() {
               <div className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Total Tools</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-500 mb-2">50K+</div>
+              <div className="text-4xl font-bold text-green-500 mb-2">20+</div>
               <div className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Active Users</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-500 mb-2">1M+</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">1k+</div>
               <div className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Codes Generated</div>
             </div>
             <div>
