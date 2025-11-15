@@ -11,6 +11,14 @@ import Editor from 'react-simple-code-editor';
 import toast from 'react-hot-toast';
 import { useTheme } from '../context/ThemeContext';
 
+// Import Prism languages
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-java";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-go";
+
 function CodeEditor(props) {
   const URL = props.URL;
   const [prompt, setPrompt] = useState(props.prompt || '');
@@ -30,9 +38,47 @@ function CodeEditor(props) {
     }
   }, [props.prompt]);
 
+  // Set initial boilerplate code
+  useEffect(() => {
+    if (codelang === 'JavaScript') {
+      setPrompt(`function add(a, b) {
+    return a + b;
+}`);
+    } else if (codelang === 'Python') {
+      setPrompt(`def hello_world():
+    print("Hello, World!")
+
+# Call the function
+hello_world()`);
+    } else if (codelang === 'Java') {
+      setPrompt(`public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}`);
+    } else if (codelang === 'C++') {
+      setPrompt(`#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}`);
+    }
+  }, [codelang]);
+
   const { isDark } = useTheme();
 
-  const languages = ["Java", "JavaScript", "C", "C++", "Python", "Go"];
+  const getPrismLanguage = (lang) => {
+    const langMap = {
+      'JavaScript': 'javascript',
+      'Python': 'python',
+      'Java': 'java',
+      'C': 'c',
+      'C++': 'cpp',
+      'Go': 'go'
+    };
+    return langMap[lang] || 'javascript';
+  };
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(optimisedCode);
@@ -51,6 +97,33 @@ function CodeEditor(props) {
 
   const changeLanguage = (lang) => {
     setCodeLang(lang);
+    // Set boilerplate code based on language
+    if (lang === 'JavaScript') {
+      setPrompt(`function add(a, b) {
+    return a + b;
+}`);
+    } else if (lang === 'Python') {
+      setPrompt(`def hello_world():
+    print("Hello, World!")
+
+# Call the function
+hello_world()`);
+    } else if (lang === 'Java') {
+      setPrompt(`public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}`);
+    } else if (lang === 'C++') {
+      setPrompt(`#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}`);
+    } else {
+      setPrompt(''); // For other languages, start empty
+    }
     toast.success(`Language changed to ${lang}`);
   };
 
@@ -109,15 +182,32 @@ function CodeEditor(props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block mb-2 text-sm font-medium">Programming Language</label>
-              <select
-                value={codelang}
-                onChange={(e) => changeLanguage(e.target.value)}
-                className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"
-              >
-                {languages.map((item) => (
-                  <option key={item} value={item}>{item}</option>
-                ))}
-              </select>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => changeLanguage('JavaScript')}
+                  className={`px-4 py-2 rounded ${codelang === 'JavaScript' ? 'bg-blue-500 text-white' : 'bg-gray-600 text-gray-300 hover:bg-gray-500'} transition-colors`}
+                >
+                  JavaScript Editor
+                </button>
+                <button
+                  onClick={() => changeLanguage('Python')}
+                  className={`px-4 py-2 rounded ${codelang === 'Python' ? 'bg-blue-500 text-white' : 'bg-gray-600 text-gray-300 hover:bg-gray-500'} transition-colors`}
+                >
+                  Python Editor
+                </button>
+                <button
+                  onClick={() => changeLanguage('Java')}
+                  className={`px-4 py-2 rounded ${codelang === 'Java' ? 'bg-blue-500 text-white' : 'bg-gray-600 text-gray-300 hover:bg-gray-500'} transition-colors`}
+                >
+                  Java Editor
+                </button>
+                <button
+                  onClick={() => changeLanguage('C++')}
+                  className={`px-4 py-2 rounded ${codelang === 'C++' ? 'bg-blue-500 text-white' : 'bg-gray-600 text-gray-300 hover:bg-gray-500'} transition-colors`}
+                >
+                  C++ Editor
+                </button>
+              </div>
             </div>
             <div>
               <label className="block mb-2 text-sm font-medium">Font Size</label>
@@ -177,7 +267,7 @@ function CodeEditor(props) {
               <Editor
                 value={prompt}
                 onValueChange={prompt => setPrompt(prompt)}
-                highlight={prompt => prism.highlight(prompt, prism.languages.javascript, codelang)}
+                highlight={prompt => prism.highlight(prompt, prism.languages[getPrismLanguage(codelang)])}
                 padding={20}
                 className={`h-full w-full ${isDark ? 'text-white' : 'text-gray-800'}`}
                 style={{
