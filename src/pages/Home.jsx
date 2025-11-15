@@ -9,6 +9,7 @@ import {
   FaMagic,
   FaRobot,
   FaTools,
+  FaUsers,
   FaVial,
   FaTachometerAlt
 } from 'react-icons/fa';
