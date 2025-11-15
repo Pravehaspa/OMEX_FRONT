@@ -68,6 +68,12 @@ function Home() {
       description: "Track progress with powerful analytics.",
       href: "/analytics",
     },
+    {
+      icon: FaUsers,
+      title: "Code Collaboration",
+      description: "Collaborate seamlessly with your development team.",
+      href: "/collaboration",
+    },
   ];
 
   const toolsData = [
