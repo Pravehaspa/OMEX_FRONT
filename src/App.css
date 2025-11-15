@@ -34,6 +34,35 @@ body.light-mode {
   --footer-text: #555555;
 }
 
+/* Override Tailwind color classes to use black and white theme */
+body.dark-mode [class*="text-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  color: var(--text) !important;
+}
+
+body.light-mode [class*="text-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  color: var(--text) !important;
+}
+
+body.dark-mode [class*="bg-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  background-color: var(--page-bg) !important;
+}
+
+body.light-mode [class*="bg-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  background-color: var(--page-bg) !important;
+}
+
+body.dark-mode [class*="bg-gray-"], body.dark-mode [class*="bg-slate-"], body.dark-mode [class*="bg-zinc-"], body.dark-mode [class*="bg-neutral-"], body.dark-mode [class*="bg-stone-"] {
+  background-color: #000000 !important;
+}
+
+body.light-mode [class*="border-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  border-color: var(--border) !important;
+}
+
+body.dark-mode [class*="border-"]:not([class*="gray"]):not([class*="white"]):not([class*="black"]):not([class*="slate"]):not([class*="zinc"]):not([class*="neutral"]):not([class*="stone"]) {
+  border-color: var(--border) !important;
+}
+
 /* Minimal layout helpers that rely on the B/W theme variables */
 main {
   height: 100%;
@@ -70,4 +99,15 @@ main .right {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   overflow: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+main .right:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px var(--border);
+}
+
+main .right:active {
+  transform: scale(0.98);
 }
