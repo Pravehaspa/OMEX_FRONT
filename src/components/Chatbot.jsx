@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Markdown from 'react-markdown';
 import { FaRobot, FaMinus, FaExpand } from 'react-icons/fa';
-
+//this is chatbot component where user can interact with the bot
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);

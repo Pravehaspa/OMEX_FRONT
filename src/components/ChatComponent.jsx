@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Markdown from 'react-markdown';
-
+// This is ChatComponent where users can interact with AI and save responses
 function ChatComponent() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');
