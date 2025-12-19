@@ -18,7 +18,7 @@ A modern web application for code analysis, optimization, and developer producti
 
 - **Frontend**: React (Vite
 
-- **Styling**: Custom CSS (Glassmorphism)
+- **Styling**:  Tailwind CSS (Glassmorphism)
 
 - **Linting**: ESLint
 
