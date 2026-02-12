@@ -1,6 +1,6 @@
 # OMEX Frontend
 
-A modern web application for code analysis, optimization, and developer productivity. Built with React and Vite, OMEX Frontend offers a suite of tools to beautify code, scan for security issues, generate test cases, and more—all in a clean, user-friendly interface.
+A modern web application for code analysis, optimization, and developer productivity. Built with React and Vite, OMEX Frontend offers a suite of tools to beautify code, scan for security issues, generate test cases, and more—all in a clean and user-friendly interface.
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
 ##  Features
 - **Code Beautifier**: Instantly format and enhance code readability.
